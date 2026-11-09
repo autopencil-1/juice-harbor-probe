@@ -1,0 +1,104 @@
+services:
+  main:
+    build:
+      context: .
+    networks: [attack]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    labels:
+      org.owasp.juice.harbor.trial: ${JUICE_TRIAL_ID:?Set JUICE_TRIAL_ID}
+    depends_on:
+      observer:
+        condition: service_healthy
+      gateway:
+        condition: service_healthy
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.app
+    networks: [target, observation]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    mem_limit: 1g
+    cpus: 1.0
+    labels:
+      org.owasp.juice.harbor.trial: ${JUICE_TRIAL_ID:?Set JUICE_TRIAL_ID}
+    healthcheck:
+      test: [CMD, /nodejs/bin/node, -e, "fetch('http://localhost:3000/api/Challenges').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))"]
+      interval: 2s
+      timeout: 3s
+      retries: 45
+      start_period: 5s
+
+  observer:
+    build:
+      context: .
+      dockerfile: Dockerfile.observer
+    networks: [observation]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    mem_limit: 256m
+    cpus: 0.5
+    environment:
+      JUICE_TRIAL_ID: ${JUICE_TRIAL_ID:?Set JUICE_TRIAL_ID}
+    labels:
+      org.owasp.juice.harbor.trial: ${JUICE_TRIAL_ID:?Set JUICE_TRIAL_ID}
+    depends_on:
+      app:
+        condition: service_healthy
+    healthcheck:
+      test: [CMD, python, -c, "from pathlib import Path; assert Path('/evidence/baseline.json').is_file()"]
+      interval: 1s
+      timeout: 2s
+      retries: 45
+
+  gateway:
+    build:
+      context: .
+      dockerfile: Dockerfile.gateway
+    networks:
+      attack:
+        aliases: [target]
+      target: {}
+      ingress: {}
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    mem_limit: 128m
+    cpus: 0.5
+    ports:
+      - "127.0.0.1:${JUICE_BIND_PORT:-0}:3000"
+    labels:
+      org.owasp.juice.harbor.trial: ${JUICE_TRIAL_ID:?Set JUICE_TRIAL_ID}
+    depends_on:
+      observer:
+        condition: service_healthy
+    healthcheck:
+      test: [CMD, nginx, -t]
+      interval: 1s
+      timeout: 2s
+      retries: 30
+    stop_grace_period: 2s
+
+networks:
+  attack:
+    internal: true
+    driver_opts:
+      com.docker.network.bridge.gateway_mode_ipv4: isolated
+    labels:
+      org.owasp.juice.harbor.trial: ${JUICE_TRIAL_ID:?Set JUICE_TRIAL_ID}
+  target:
+    internal: true
+    driver_opts:
+      com.docker.network.bridge.gateway_mode_ipv4: isolated
+    labels:
+      org.owasp.juice.harbor.trial: ${JUICE_TRIAL_ID:?Set JUICE_TRIAL_ID}
+  observation:
+    internal: true
+    driver_opts:
+      com.docker.network.bridge.gateway_mode_ipv4: isolated
+    labels:
+      org.owasp.juice.harbor.trial: ${JUICE_TRIAL_ID:?Set JUICE_TRIAL_ID}
+  ingress:
+    labels:
+      org.owasp.juice.harbor.trial: ${JUICE_TRIAL_ID:?Set JUICE_TRIAL_ID}

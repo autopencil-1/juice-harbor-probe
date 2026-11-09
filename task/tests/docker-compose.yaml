@@ -1,0 +1,5 @@
+services:
+  main:
+    network_mode: none
+    labels:
+      org.owasp.juice.harbor.trial: ${JUICE_TRIAL_ID:?Set JUICE_TRIAL_ID}

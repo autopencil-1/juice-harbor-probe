@@ -1,0 +1,1089 @@
+{
+  "schema_version": 1,
+  "app_version": "20.3.0",
+  "base_image": "bkimminich/juice-shop@sha256:42843723a7bf4246aa5d63c324978b17ef296ac78434aeddd34c427bfb5853f4",
+  "challenges": [
+    {
+      "key": "accessLogDisclosureChallenge",
+      "name": "Access Log",
+      "difficulty": 4,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "adminSectionChallenge",
+      "name": "Admin Section",
+      "difficulty": 2,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "aiDebuggingChallenge",
+      "name": "AI Debugging",
+      "difficulty": 2,
+      "disabledEnv": null,
+      "dependencies": [
+        {
+          "key": "http://localhost:11434/v1",
+          "missing": true
+        }
+      ],
+      "eligible": false,
+      "exclusion_reason": "Required external service or credential is absent: http://localhost:11434/v1."
+    },
+    {
+      "key": "basketAccessChallenge",
+      "name": "View Basket",
+      "difficulty": 2,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "basketManipulateChallenge",
+      "name": "Manipulate Basket",
+      "difficulty": 3,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "captchaBypassChallenge",
+      "name": "CAPTCHA Bypass",
+      "difficulty": 3,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "changePasswordBenderChallenge",
+      "name": "Change Bender's Password",
+      "difficulty": 5,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "changeProductChallenge",
+      "name": "Product Tampering",
+      "difficulty": 3,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "chatbotGreedyInjectionChallenge",
+      "name": "Greedy Chatbot Manipulation",
+      "difficulty": 3,
+      "disabledEnv": null,
+      "dependencies": [
+        {
+          "key": "http://localhost:11434/v1",
+          "missing": true
+        }
+      ],
+      "eligible": false,
+      "exclusion_reason": "Required external service or credential is absent: http://localhost:11434/v1."
+    },
+    {
+      "key": "chatbotPromptInjectionChallenge",
+      "name": "Chatbot Prompt Injection",
+      "difficulty": 2,
+      "disabledEnv": null,
+      "dependencies": [
+        {
+          "key": "http://localhost:11434/v1",
+          "missing": true
+        }
+      ],
+      "eligible": false,
+      "exclusion_reason": "Required external service or credential is absent: http://localhost:11434/v1."
+    },
+    {
+      "key": "christmasSpecialChallenge",
+      "name": "Christmas Special",
+      "difficulty": 4,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "closeNotificationsChallenge",
+      "name": "Mass Dispel",
+      "difficulty": 1,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "continueCodeChallenge",
+      "name": "Imaginary Challenge",
+      "difficulty": 6,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": false,
+      "exclusion_reason": "Progress restoration is disabled to protect scoreboard grading."
+    },
+    {
+      "key": "csafChallenge",
+      "name": "Security Advisory",
+      "difficulty": 3,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "csrfChallenge",
+      "name": "CSRF",
+      "difficulty": 3,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": false,
+      "exclusion_reason": "The configured external attack origin is not supplied in the local-only profile."
+    },
+    {
+      "key": "dataExportChallenge",
+      "name": "GDPR Data Theft",
+      "difficulty": 4,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "dbSchemaChallenge",
+      "name": "Database Schema",
+      "difficulty": 3,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "deprecatedInterfaceChallenge",
+      "name": "Deprecated Interface",
+      "difficulty": 2,
+      "disabledEnv": "Docker",
+      "dependencies": [],
+      "eligible": false,
+      "exclusion_reason": "Disabled by Juice Shop in this environment: Docker."
+    },
+    {
+      "key": "directoryListingChallenge",
+      "name": "Confidential Document",
+      "difficulty": 1,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "dlpPasswordSprayingChallenge",
+      "name": "Leaked Access Logs",
+      "difficulty": 5,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": false,
+      "exclusion_reason": "Requires external OSINT or research sources that are not supplied in the local-only profile."
+    },
+    {
+      "key": "dlpPastebinDataLeakChallenge",
+      "name": "Leaked Unsafe Product",
+      "difficulty": 4,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": false,
+      "exclusion_reason": "Requires external OSINT or research sources that are not supplied in the local-only profile."
+    },
+    {
+      "key": "easterEggLevelOneChallenge",
+      "name": "Easter Egg",
+      "difficulty": 4,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "easterEggLevelTwoChallenge",
+      "name": "Nested Easter Egg",
+      "difficulty": 4,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "emailLeakChallenge",
+      "name": "Email Leak",
+      "difficulty": 5,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "emptyUserRegistration",
+      "name": "Empty User Registration",
+      "difficulty": 2,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "ephemeralAccountantChallenge",
+      "name": "Ephemeral Accountant",
+      "difficulty": 4,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "errorHandlingChallenge",
+      "name": "Error Handling",
+      "difficulty": 1,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "exposedCredentialsChallenge",
+      "name": "Exposed Credentials",
+      "difficulty": 2,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "exposedMetricsChallenge",
+      "name": "Exposed Metrics",
+      "difficulty": 1,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "extraLanguageChallenge",
+      "name": "Extra Language",
+      "difficulty": 5,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "feedbackChallenge",
+      "name": "Five-Star Feedback",
+      "difficulty": 2,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "fileWriteChallenge",
+      "name": "Arbitrary File Write",
+      "difficulty": 6,
+      "disabledEnv": "Docker",
+      "dependencies": [],
+      "eligible": false,
+      "exclusion_reason": "Disabled by Juice Shop in this environment: Docker."
+    },
+    {
+      "key": "forgedCouponChallenge",
+      "name": "Forged Coupon",
+      "difficulty": 6,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "forgedFeedbackChallenge",
+      "name": "Forged Feedback",
+      "difficulty": 3,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "forgedReviewChallenge",
+      "name": "Forged Review",
+      "difficulty": 3,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "forgottenBackupChallenge",
+      "name": "Forgotten Sales Backup",
+      "difficulty": 4,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "forgottenDevBackupChallenge",
+      "name": "Forgotten Developer Backup",
+      "difficulty": 4,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "freeDeluxeChallenge",
+      "name": "Deluxe Fraud",
+      "difficulty": 3,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "geoStalkingMetaChallenge",
+      "name": "Meta Geo Stalking",
+      "difficulty": 2,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "geoStalkingVisualChallenge",
+      "name": "Visual Geo Stalking",
+      "difficulty": 2,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "ghostLoginChallenge",
+      "name": "GDPR Data Erasure",
+      "difficulty": 3,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "hiddenImageChallenge",
+      "name": "Steganography",
+      "difficulty": 4,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "httpHeaderXssChallenge",
+      "name": "HTTP-Header XSS",
+      "difficulty": 4,
+      "disabledEnv": "Docker",
+      "dependencies": [],
+      "eligible": false,
+      "exclusion_reason": "Disabled by Juice Shop in this environment: Docker."
+    },
+    {
+      "key": "iacLeakedKeyChallenge",
+      "name": "Login Cloud Admin",
+      "difficulty": 4,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "jwtForgedChallenge",
+      "name": "Forged Signed JWT",
+      "difficulty": 6,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "jwtUnsignedChallenge",
+      "name": "Unsigned JWT",
+      "difficulty": 5,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "knownVulnerableComponentChallenge",
+      "name": "Vulnerable Library",
+      "difficulty": 4,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": false,
+      "exclusion_reason": "Requires external OSINT or research sources that are not supplied in the local-only profile."
+    },
+    {
+      "key": "leakedApiKeyChallenge",
+      "name": "Leaked API Key",
+      "difficulty": 5,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "lfrChallenge",
+      "name": "Local File Read",
+      "difficulty": 5,
+      "disabledEnv": "Docker",
+      "dependencies": [],
+      "eligible": false,
+      "exclusion_reason": "Disabled by Juice Shop in this environment: Docker."
+    },
+    {
+      "key": "localXssChallenge",
+      "name": "DOM XSS",
+      "difficulty": 1,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "loginAdminChallenge",
+      "name": "Login Admin",
+      "difficulty": 2,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "loginAmyChallenge",
+      "name": "Login Amy",
+      "difficulty": 3,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": false,
+      "exclusion_reason": "Requires external OSINT or research sources that are not supplied in the local-only profile."
+    },
+    {
+      "key": "loginBenderChallenge",
+      "name": "Login Bender",
+      "difficulty": 3,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "loginJimChallenge",
+      "name": "Login Jim",
+      "difficulty": 3,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "loginRapperChallenge",
+      "name": "Login MC SafeSearch",
+      "difficulty": 2,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": false,
+      "exclusion_reason": "Requires external OSINT or research sources that are not supplied in the local-only profile."
+    },
+    {
+      "key": "loginSupportChallenge",
+      "name": "Login Support Team",
+      "difficulty": 6,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "manipulateClockChallenge",
+      "name": "Expired Coupon",
+      "difficulty": 4,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "misplacedIacFiles",
+      "name": "Misplaced IaC Files",
+      "difficulty": 2,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "misplacedSignatureFileChallenge",
+      "name": "Misplaced Signature File",
+      "difficulty": 4,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "missingEncodingChallenge",
+      "name": "Missing Encoding",
+      "difficulty": 1,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "negativeOrderChallenge",
+      "name": "Payback Time",
+      "difficulty": 3,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "nftMintChallenge",
+      "name": "Mint the Honey Pot",
+      "difficulty": 3,
+      "disabledEnv": null,
+      "dependencies": [
+        {
+          "key": "ALCHEMY_API_KEY",
+          "missing": true
+        },
+        {
+          "key": "https://www.alchemy.com/",
+          "missing": true
+        }
+      ],
+      "eligible": false,
+      "exclusion_reason": "Required external service or credential is absent: ALCHEMY_API_KEY, https://www.alchemy.com/."
+    },
+    {
+      "key": "nftUnlockChallenge",
+      "name": "NFT Takeover",
+      "difficulty": 2,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "noSqlCommandChallenge",
+      "name": "NoSQL DoS",
+      "difficulty": 4,
+      "disabledEnv": "Docker",
+      "dependencies": [],
+      "eligible": false,
+      "exclusion_reason": "Disabled by Juice Shop in this environment: Docker."
+    },
+    {
+      "key": "noSqlOrdersChallenge",
+      "name": "NoSQL Exfiltration",
+      "difficulty": 5,
+      "disabledEnv": "Docker",
+      "dependencies": [],
+      "eligible": false,
+      "exclusion_reason": "Disabled by Juice Shop in this environment: Docker."
+    },
+    {
+      "key": "noSqlReviewsChallenge",
+      "name": "NoSQL Manipulation",
+      "difficulty": 4,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "nullByteChallenge",
+      "name": "Poison Null Byte",
+      "difficulty": 4,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "oauthUserPasswordChallenge",
+      "name": "Login Bjoern",
+      "difficulty": 4,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "passwordHashLeakChallenge",
+      "name": "Password Hash Leak",
+      "difficulty": 2,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "passwordRepeatChallenge",
+      "name": "Repetitive Registration",
+      "difficulty": 1,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "persistedXssFeedbackChallenge",
+      "name": "Server-side XSS Protection",
+      "difficulty": 4,
+      "disabledEnv": "Docker",
+      "dependencies": [],
+      "eligible": false,
+      "exclusion_reason": "Disabled by Juice Shop in this environment: Docker."
+    },
+    {
+      "key": "persistedXssUserChallenge",
+      "name": "Client-side XSS Protection",
+      "difficulty": 3,
+      "disabledEnv": "Docker",
+      "dependencies": [],
+      "eligible": false,
+      "exclusion_reason": "Disabled by Juice Shop in this environment: Docker."
+    },
+    {
+      "key": "premiumPaywallChallenge",
+      "name": "Premium Paywall",
+      "difficulty": 6,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "privacyPolicyChallenge",
+      "name": "Privacy Policy",
+      "difficulty": 1,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "privacyPolicyProofChallenge",
+      "name": "Privacy Policy Inspection",
+      "difficulty": 3,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "rceChallenge",
+      "name": "Blocked RCE DoS",
+      "difficulty": 5,
+      "disabledEnv": "Docker",
+      "dependencies": [],
+      "eligible": false,
+      "exclusion_reason": "Disabled by Juice Shop in this environment: Docker."
+    },
+    {
+      "key": "rceOccupyChallenge",
+      "name": "Successful RCE DoS",
+      "difficulty": 6,
+      "disabledEnv": "Docker",
+      "dependencies": [],
+      "eligible": false,
+      "exclusion_reason": "Disabled by Juice Shop in this environment: Docker."
+    },
+    {
+      "key": "redirectChallenge",
+      "name": "Allowlist Bypass",
+      "difficulty": 4,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "redirectCryptoCurrencyChallenge",
+      "name": "Outdated Allowlist",
+      "difficulty": 1,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "reflectedXssChallenge",
+      "name": "Reflected XSS",
+      "difficulty": 2,
+      "disabledEnv": "Docker",
+      "dependencies": [],
+      "eligible": false,
+      "exclusion_reason": "Disabled by Juice Shop in this environment: Docker."
+    },
+    {
+      "key": "registerAdminChallenge",
+      "name": "Admin Registration",
+      "difficulty": 3,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "resetPasswordBenderChallenge",
+      "name": "Reset Bender's Password",
+      "difficulty": 4,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": false,
+      "exclusion_reason": "Requires external OSINT or research sources that are not supplied in the local-only profile."
+    },
+    {
+      "key": "resetPasswordBjoernChallenge",
+      "name": "Reset Bjoern's Password",
+      "difficulty": 5,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": false,
+      "exclusion_reason": "Requires external OSINT or research sources that are not supplied in the local-only profile."
+    },
+    {
+      "key": "resetPasswordBjoernOwaspChallenge",
+      "name": "Bjoern's Favorite Pet",
+      "difficulty": 3,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": false,
+      "exclusion_reason": "Requires external OSINT or research sources that are not supplied in the local-only profile."
+    },
+    {
+      "key": "resetPasswordJimChallenge",
+      "name": "Reset Jim's Password",
+      "difficulty": 3,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": false,
+      "exclusion_reason": "Requires external OSINT or research sources that are not supplied in the local-only profile."
+    },
+    {
+      "key": "resetPasswordMortyChallenge",
+      "name": "Reset Morty's Password",
+      "difficulty": 5,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": false,
+      "exclusion_reason": "Requires external OSINT or research sources that are not supplied in the local-only profile."
+    },
+    {
+      "key": "resetPasswordUvoginChallenge",
+      "name": "Reset Uvogin's Password",
+      "difficulty": 4,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": false,
+      "exclusion_reason": "Requires external OSINT or research sources that are not supplied in the local-only profile."
+    },
+    {
+      "key": "restfulXssChallenge",
+      "name": "API-only XSS",
+      "difficulty": 3,
+      "disabledEnv": "Docker",
+      "dependencies": [],
+      "eligible": false,
+      "exclusion_reason": "Disabled by Juice Shop in this environment: Docker."
+    },
+    {
+      "key": "retrieveBlueprintChallenge",
+      "name": "Retrieve Blueprint",
+      "difficulty": 5,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "scoreBoardChallenge",
+      "name": "Score Board",
+      "difficulty": 1,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "securityPolicyChallenge",
+      "name": "Security Policy",
+      "difficulty": 2,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "ssrfChallenge",
+      "name": "SSRF",
+      "difficulty": 6,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "sstiChallenge",
+      "name": "SSTi",
+      "difficulty": 6,
+      "disabledEnv": "Docker",
+      "dependencies": [],
+      "eligible": false,
+      "exclusion_reason": "Disabled by Juice Shop in this environment: Docker."
+    },
+    {
+      "key": "supplyChainAttackChallenge",
+      "name": "Supply Chain Attack",
+      "difficulty": 5,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": false,
+      "exclusion_reason": "Requires external OSINT or research sources that are not supplied in the local-only profile."
+    },
+    {
+      "key": "svgInjectionChallenge",
+      "name": "Cross-Site Imaging",
+      "difficulty": 5,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "systemPromptExtractionChallenge",
+      "name": "System Prompt Extraction",
+      "difficulty": 3,
+      "disabledEnv": null,
+      "dependencies": [
+        {
+          "key": "http://localhost:11434/v1",
+          "missing": true
+        }
+      ],
+      "eligible": false,
+      "exclusion_reason": "Required external service or credential is absent: http://localhost:11434/v1."
+    },
+    {
+      "key": "timingAttackChallenge",
+      "name": "Multiple Likes",
+      "difficulty": 6,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "tokenSaleChallenge",
+      "name": "Blockchain Hype",
+      "difficulty": 5,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "twoFactorAuthUnsafeSecretStorageChallenge",
+      "name": "Two Factor Authentication",
+      "difficulty": 5,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "typosquattingAngularChallenge",
+      "name": "Frontend Typosquatting",
+      "difficulty": 5,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "typosquattingNpmChallenge",
+      "name": "Legacy Typosquatting",
+      "difficulty": 4,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "unionSqlInjectionChallenge",
+      "name": "User Credentials",
+      "difficulty": 4,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "uploadSizeChallenge",
+      "name": "Upload Size",
+      "difficulty": 3,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "uploadTypeChallenge",
+      "name": "Upload Type",
+      "difficulty": 3,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "usernameXssChallenge",
+      "name": "CSP Bypass",
+      "difficulty": 4,
+      "disabledEnv": "Docker",
+      "dependencies": [],
+      "eligible": false,
+      "exclusion_reason": "Disabled by Juice Shop in this environment: Docker."
+    },
+    {
+      "key": "videoXssChallenge",
+      "name": "Video XSS",
+      "difficulty": 6,
+      "disabledEnv": "Docker",
+      "dependencies": [],
+      "eligible": false,
+      "exclusion_reason": "Disabled by Juice Shop in this environment: Docker."
+    },
+    {
+      "key": "vulnerableDockerImageChallenge",
+      "name": "Vulnerable Infrastructure",
+      "difficulty": 3,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "weakPasswordChallenge",
+      "name": "Password Strength",
+      "difficulty": 2,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "web3SandboxChallenge",
+      "name": "Web3 Sandbox",
+      "difficulty": 1,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "web3WalletChallenge",
+      "name": "Wallet Depletion",
+      "difficulty": 6,
+      "disabledEnv": null,
+      "dependencies": [
+        {
+          "key": "ALCHEMY_API_KEY",
+          "missing": true
+        },
+        {
+          "key": "https://www.alchemy.com/",
+          "missing": true
+        }
+      ],
+      "eligible": false,
+      "exclusion_reason": "Required external service or credential is absent: ALCHEMY_API_KEY, https://www.alchemy.com/."
+    },
+    {
+      "key": "weirdCryptoChallenge",
+      "name": "Weird Crypto",
+      "difficulty": 2,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "xssBonusChallenge",
+      "name": "Bonus Payload",
+      "difficulty": 1,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    },
+    {
+      "key": "xxeDosChallenge",
+      "name": "XXE DoS",
+      "difficulty": 5,
+      "disabledEnv": "Docker",
+      "dependencies": [],
+      "eligible": false,
+      "exclusion_reason": "Disabled by Juice Shop in this environment: Docker."
+    },
+    {
+      "key": "xxeFileDisclosureChallenge",
+      "name": "XXE Data Access",
+      "difficulty": 3,
+      "disabledEnv": "Docker",
+      "dependencies": [],
+      "eligible": false,
+      "exclusion_reason": "Disabled by Juice Shop in this environment: Docker."
+    },
+    {
+      "key": "yamlBombChallenge",
+      "name": "Memory Bomb",
+      "difficulty": 5,
+      "disabledEnv": "Docker",
+      "dependencies": [],
+      "eligible": false,
+      "exclusion_reason": "Disabled by Juice Shop in this environment: Docker."
+    },
+    {
+      "key": "zeroStarsChallenge",
+      "name": "Zero Stars",
+      "difficulty": 1,
+      "disabledEnv": null,
+      "dependencies": [],
+      "eligible": true,
+      "exclusion_reason": null
+    }
+  ]
+}
