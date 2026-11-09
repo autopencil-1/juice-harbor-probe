@@ -1,0 +1,5 @@
+.state/
+task/environment/scoring-manifest.json
+task/tests/scoring-manifest.json
+__pycache__/
+*.pyc
